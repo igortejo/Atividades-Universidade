@@ -1,0 +1,18 @@
+- input: |
+    35.0
+    40.0
+    85
+    45
+    -20
+    15
+    215
+    181
+  output: |
+    53.15 cm (melhor tiro)
+    96.18 cm
+    25.00 cm (melhor tiro)
+    --
+    num tiros: 3
+    melhor tiro: 25.00 cm
+    distancia media: 58.11 cm
+

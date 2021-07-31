@@ -1,0 +1,23 @@
+- input: |
+    10
+    10
+    10
+    10
+    10
+    10
+  output: |
+    Rejeitadas = 0
+    Fim de semana!
+
+- input: |
+    10
+    12
+    10
+    10
+    10
+    10
+    5
+    6
+  output: |
+    Rejeitadas = 1
+    Fim de semana!

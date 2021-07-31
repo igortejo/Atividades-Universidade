@@ -1,0 +1,8 @@
+n1 = float(input())
+n2 = float(input())
+n3 = float(input())
+p1 = float(input())
+p2 = float(input())
+p3 = 100 - (p1 + p2)
+media_final = ((n1 * p1) + (n2 * p2) + (n3 * p3)) / (p1 + p2 + p3)
+print(f'Média Final: {media_final:.1f}')

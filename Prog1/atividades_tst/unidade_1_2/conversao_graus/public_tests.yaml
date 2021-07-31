@@ -1,0 +1,8 @@
+- input: |
+    21
+    8
+    43
+  name: exemplo1
+  output: |
+    graus = 21.1453
+

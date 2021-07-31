@@ -1,0 +1,35 @@
+- input: |
+    jonas
+    9
+    jairo
+    5
+    marcos
+    3
+  output: |
+    jonas
+    jairo
+    marcos
+
+- input: |
+    mateus
+    3
+    jonas
+    5
+    adriano
+    9
+  output: |
+    adriano
+    jonas
+    mateus
+
+- input: |
+    mateus
+    5
+    jonas
+    9
+    adriano
+    5
+  output: |
+    jonas
+    mateus
+    adriano

@@ -1,0 +1,7 @@
+- input: |
+    Hoje tem miniteste
+    A universidade deve ser para todos
+    Programação é uma arte
+    fim
+  output: |
+    Frase 2: universidade

@@ -1,0 +1,8 @@
+- input: |
+    Eu estudo computacao
+    aEeo
+  output: |
+    a 2
+    E 1
+    e 1
+    o 3

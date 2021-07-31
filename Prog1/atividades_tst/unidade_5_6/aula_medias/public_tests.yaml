@@ -1,0 +1,18 @@
+- input: |
+    30.0
+    50.0
+    10.0
+    70.0
+  output: |
+    Quantidade de números lidos: 4
+    Soma dos números lidos: 160.00
+    Média = 40.00
+
+    Abaixo da média
+    30.00 (1o)
+    10.00 (3o)
+
+    Acima da média
+    50.00 (2o)
+    70.00 (4o)
+

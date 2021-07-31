@@ -1,0 +1,5 @@
+- input: |
+    2
+    100.0
+  output: |
+    Valor final: R$ 95.00

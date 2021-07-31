@@ -1,0 +1,6 @@
+pi = float(input())
+li = float(input())
+pf = float(input())
+lf = float(input())
+consumo_carro = (pf - pi) / (li - lf)
+print(f'{consumo_carro:.1f}')

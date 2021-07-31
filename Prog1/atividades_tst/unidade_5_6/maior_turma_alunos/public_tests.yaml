@@ -1,0 +1,42 @@
+- input: |
+    LP1 - Turma 1
+    20011234
+    20012322
+    20011765
+    190110987
+    -1
+    LP1 - Turma 2
+    20016543
+    19012345
+    19018777
+    -1
+    LP2 - Turma 1
+    20018765
+    20013233
+    -1
+    IC - Turma 1
+    18028765
+    18022234
+    18023131
+    19021414
+    19023000
+    -1
+    fim
+  name: test_name
+  output: |
+    IC - Turma 1: 5 aluno(s)
+
+- input: |
+    ATAL
+    20212345
+    19025700
+    -1
+    Sistemas Operacionais
+    -1
+    LP2
+    -1
+    fim
+  name: test_name
+  output: |
+    ATAL: 2 aluno(s)
+
