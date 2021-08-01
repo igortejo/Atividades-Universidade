@@ -42,7 +42,7 @@ public class MainAgenda {
 	 * @return O comando escolhido.
 	 */
 	private static String menu(Scanner scanner) {
-		System.out.println("\n---\nMENU\n" + "(C)adastrar Contato\n" + "(L)istar Contatos\n" + "(E)xibir Contato\n"
+		System.out.println("\n---\nMENU\n" + "(C)adastrar Contato\n" + "(L)istar Contatos\n" + "(E)xibir Contato\n" + "(F)Favoritos\n" + "(A)Adicionar Favorito\n" 
 				+ "(S)air\n" + "\n" + "Opção> ");
 		return scanner.next().toUpperCase();
 	}
@@ -64,6 +64,12 @@ public class MainAgenda {
 			break;
 		case "E":
 			exibeContato(agenda, scanner);
+			break;
+		case "A":
+			adicionarFavorito(agenda, scanner);
+			break;
+		case "F":
+			listarFavoritos(agenda);
 			break;
 		case "S":
 			sai();
@@ -105,6 +111,28 @@ public class MainAgenda {
 		}
 
 	}
+	private static void adicionarFavorito(Agenda agenda, Scanner scanner) {
+		System.out.println("Contato>");
+		int contato = scanner.nextInt();
+		System.out.println("Posição>");
+		int posicao = scanner.nextInt();
+		if (!agenda.isFavorito(contato)) {
+			agenda.adicionarFavorito(contato, posicao);
+			System.out.println("CONTATO FAVORITADO NA POSIÇÃO " + posicao);
+		} 
+		
+		
+	}
+	private static void listarFavoritos(Agenda agenda) {
+		Contatos[] favoritos = agenda.listarFavoritos();
+		for (int i = 0; i < favoritos.length; i++) {
+			if (favoritos[i] != null) {
+				System.out.println((i + 1) + " - " + favoritos[i].nomeCompleto());
+			}
+			
+		}
+	}
+	
 
 	/**
 	 * Cadastra um contato na agenda.

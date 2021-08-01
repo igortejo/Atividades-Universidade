@@ -22,6 +22,9 @@ public class Contatos {
 	public String nomeCompleto() {
 		return nome + " " + sobrenome;
 	}
+	public void adiconaCoracao() {
+		this.nome = "<3 " + nome;
+	}
 	public String getTelefone() {
 		return telefone;
 	}

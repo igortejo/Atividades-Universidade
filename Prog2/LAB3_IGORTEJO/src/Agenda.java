@@ -8,15 +8,16 @@
 public class Agenda {
 
 	private static final int TAMANHO_AGENDA = 100;
+	private static final int TAMANHO_FAVORITOS = 10;
 
-	// private String[] contatos;
 	Contatos[] contatos;
-
+	Contatos[] favoritos;
 	/**
 	 * Cria uma agenda.
 	 */
 	public Agenda() {
 		this.contatos = new Contatos[TAMANHO_AGENDA];
+		this.favoritos = new Contatos[TAMANHO_FAVORITOS];
 	}
 
 	/**
@@ -76,6 +77,24 @@ public class Agenda {
 			}
 		}
 		return false;
+	}
+public boolean isFavorito(int favorito) {
+		Contatos cont = contatos[favorito - 1];
+		for (int i = 0; i < favoritos.length; i++) {
+			if (!(favoritos[i] == null)){
+				if (cont.equals(favoritos[i])) {
+				return true;
+			}
+			}
+		}
+		return false;
+	}
+	public void adicionarFavorito(int contato, int posicao) {
+		 favoritos[posicao - 1] = contatos[contato - 1];
+		 contatos[contato - 1].adiconaCoracao();
+	}
+public Contatos[] listarFavoritos() {
+		return favoritos;
 	}
 
 }
