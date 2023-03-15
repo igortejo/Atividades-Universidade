@@ -1,0 +1,1 @@
+boombang xs = [if x < 10 then "boom" else "bang" | x <- xs, odd x]
