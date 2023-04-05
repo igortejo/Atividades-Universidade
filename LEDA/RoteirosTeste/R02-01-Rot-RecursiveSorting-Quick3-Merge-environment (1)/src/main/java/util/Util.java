@@ -7,6 +7,7 @@ public class Util {
 
 	/**
 	 * Swaps the contents of two positions in an array.
+	 * @param <T>
 	 *
 	 * @param array
 	 *            The array to be modified, not null
@@ -15,13 +16,13 @@ public class Util {
 	 * @param j
 	 *            The other target position
 	 */
-	public static void swap(Object[] array, int i, int j) {
+	public static <T> void swap(T[] array, int i, int j) {
 		if (array == null)
 			throw new IllegalArgumentException();
 
 		Object temp = array[i];
 		array[i] = array[j];
-		array[j] = temp;
+		array[j] = (T) temp;
 	}
 
 	/**
