@@ -1,6 +1,9 @@
 package sorting.divideAndConquer.quicksort3;
 
+import java.util.Arrays;
+
 import sorting.AbstractSorting;
+import util.Util;
 
 /**
  * A classe QuickSortMedianOfThree representa uma variação do QuickSort que
@@ -19,8 +22,54 @@ import sorting.AbstractSorting;
 public class QuickSortMedianOfThree<T extends Comparable<T>> extends
 		AbstractSorting<T> {
 
+	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		
+		if(leftIndex <	 rightIndex) {
+			
+			int pivot_index = partition(array, leftIndex, rightIndex);
+			sort(array, leftIndex, pivot_index - 1);
+			sort(array, pivot_index + 1, rightIndex);
+		}
+		
+	}
+	
+	public int pickPivotIndex (T[] array, int leftIndex, int rightIndex ) {
+		
+		int meio = (leftIndex + rightIndex) / 2;
+		
+		T[] array_sorted = Arrays.copyOf(array, 3);
+		
+		Arrays.sort(array_sorted);
+		
+		if (array_sorted[1].compareTo(array[leftIndex]) == 0) {
+			return leftIndex;
+		}else if(array_sorted[1].compareTo(array[meio]) == 0) {
+			return meio;
+		}else {
+			return rightIndex;
+		}
+		
+	}
+	
+	public int partition(T[] array, int leftIndex, int rightIndex) {
+		
+		int index_pivot = pickPivotIndex(array, leftIndex, rightIndex);
+		
+		Util.swap(array, index_pivot, leftIndex);
+		
+		T pivot = array[leftIndex];
+	
+		int i = leftIndex;
+		
+		for (int j = i + 1; j <= rightIndex; j++) {
+			if (array[j].compareTo(pivot) <= 0) {
+				i++;
+				Util.swap(array, j, i);
+			}
+		}
+		Util.swap(array, leftIndex, i);
+		
+		return i;
 	}
 }
