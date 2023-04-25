@@ -38,15 +38,15 @@ public class StudentSortingTest {
 		getImplementation();
 	}
 
-	// // MÃ‰TODOS AUXILIARES DA INICIALIZAÃ‡ÃƒO
+	// // MÉTODOS AUXILIARES DA INICIALIZAÇÃO
 	/**
-	 * MÃ©todo que inicializa a implementaÃ§Ã£o a ser testada com a implementaÃ§Ã£o
+	 * Método que inicializa a implementação a ser testada com a implementação
 	 * do aluno
 	 */
 	private void getImplementation() {
-		// TODO O aluno deve instanciar sua implementaÃ§Ã£o abaixo ao invÃ©s de
+		// TODO O aluno deve instanciar sua implementação abaixo ao invés de
 		// null
-		this.implementation = new ExtendedCountingSort();
+		this.implementation = new CountingSort();
 		//Assert.fail("Implementation not provided");
 	}
 
@@ -73,9 +73,9 @@ public class StudentSortingTest {
 				.copyOf(arrayPadrao, arrayPadrao.length);
 	}
 
-	// FIM DOS METODOS AUXILIARES DA INICIALIZAÃ‡ÃƒO
+	// FIM DOS METODOS AUXILIARES DA INICIALIZAÇÃO
 
-	// MÃ‰TODOS DE TESTE
+	// MÉTODOS DE TESTE
 
 	public void genericTest(Integer[] array) {
 		Integer[] copy1 = {};
@@ -117,11 +117,11 @@ public class StudentSortingTest {
 		genericTest(vetorValoresNegativos);
 	}
 
-	// MÃ‰TODOS QUE OS ALUNOS PODEM CRIAR
+	// MÉTODOS QUE OS ALUNOS PODEM CRIAR
 	/**
-	 * O ALUNO PODE IMPLEMENTAR METODOS DE ORDENAÃ‡ÃƒO TESTANDO O SORT COM TRES
-	 * ARGUMENTOS PARA TESTAR A ORDENACAO EM UM PEDAÃ‡O DO ARRAY. DICA: PROCUREM
-	 * SEGUIR A ESTRUTURA DOS MÃ‰TODOS DE TESTE ACIMA DESCRITOS, ORDENANDO APENAS
+	 * O ALUNO PODE IMPLEMENTAR METODOS DE ORDENAÇÃO TESTANDO O SORT COM TRES
+	 * ARGUMENTOS PARA TESTAR A ORDENACAO EM UM PEDAÇO DO ARRAY. DICA: PROCUREM
+	 * SEGUIR A ESTRUTURA DOS MÉTODOS DE TESTE ACIMA DESCRITOS, ORDENANDO APENAS
 	 * UMA PARTE DO ARRAY.
 	 */
 	

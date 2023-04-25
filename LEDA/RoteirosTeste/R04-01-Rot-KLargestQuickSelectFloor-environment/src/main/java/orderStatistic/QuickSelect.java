@@ -1,5 +1,7 @@
 package orderStatistic;
 
+import util.Util;
+
 /**
  * O quickselect eh um algoritmo baseado no quicksort para
  * descobrir/selectionar, em tempo linear, a k-esima estatistica de ordem
@@ -20,29 +22,65 @@ public class QuickSelect<T extends Comparable<T>> {
 
 	/**
 	 * O algoritmo quickselect usa a mesma abordagem do quicksort para calcular o
-	 * k-esimo menor elemento (k-esima estatistica de ordem) de um determinado
-	 * array de dados comparaveis. Primeiro ele escolhe um elemento como o pivot
-	 * e particiona os dados em duas partes, baseando-se no pivot (exatemente da
-	 * mesma forma que o quicksort). Depois disso, ele chama recursivamente o
-	 * mesmo algoritmo em apenas uma das metades (a que contem o k-esimo menor
-	 * elemento). Isso reduz a complexidade de O(n.log n) para O(n).
+	 * k-esimo menor elemento (k-esima estatistica de ordem) de um determinado array
+	 * de dados comparaveis. Primeiro ele escolhe um elemento como o pivot e
+	 * particiona os dados em duas partes, baseando-se no pivot (exatemente da mesma
+	 * forma que o quicksort). Depois disso, ele chama recursivamente o mesmo
+	 * algoritmo em apenas uma das metades (a que contem o k-esimo menor elemento).
+	 * Isso reduz a complexidade de O(n.log n) para O(n).
 	 *
-	 * Caso o array seja vazio ou a ordem (posicao) do elemento desejado esteja
-	 * fora do tamanho do array, o metodo deve retornar null.
+	 * Caso o array seja vazio ou a ordem (posicao) do elemento desejado esteja fora
+	 * do tamanho do array, o metodo deve retornar null.
 	 *
 	 *
-	 * @param array
-	 *            o array de dados a procurar o k-esimo menor elemento
-	 *            este array normalmente nao esta ordenado
-	 * @param k
-	 *            a ordem do elemento desejado. 1 significa primeiro menor
-	 *            elemento, 2 significa segundo menor elemento e assim por
-	 *            diante
+	 * @param array o array de dados a procurar o k-esimo menor elemento este array
+	 *              normalmente nao esta ordenado
+	 * @param k     a ordem do elemento desejado. 1 significa primeiro menor
+	 *              elemento, 2 significa segundo menor elemento e assim por diante
 	 * @return
 	 *
 	 */
+
 	public T quickSelect(T[] array, int k) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if (k >= 1 && k <= array.length) {
+			return this.quickSelect(array, k, 0, array.length - 1);
+		}
+
+		return null;
+	}
+
+	public T quickSelect(T[] array, int k, int leftIndex, int rightIndex) {
+
+		if (leftIndex < rightIndex) {
+
+			int pivot_index = partition(array, leftIndex, rightIndex);
+
+			if (k < pivot_index + 1) {
+				quickSelect(array, k, leftIndex, pivot_index - 1);
+
+			} else {
+				quickSelect(array, k, pivot_index + 1, rightIndex);
+
+			}
+
+		}
+		return array[k - 1];
+	}
+
+	public int partition(T[] array, int leftIndex, int rightIndex) {
+
+		T pivot = array[leftIndex];
+
+		int i = leftIndex;
+
+		for (int j = i + 1; j <= rightIndex; j++) {
+			if (array[j].compareTo(pivot) <= 0) {
+				i++;
+				Util.swap(array, j, i);
+			}
+		}
+		Util.swap(array, leftIndex, i);
+
+		return i;
 	}
 }
