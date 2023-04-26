@@ -50,7 +50,7 @@ public class CountingSort extends AbstractSorting<Integer> {
 				arrayContador[array[i]] -= 1;
 			}
 
-			// copiando de arrayContador para o array original
+			// copiando de arrayAux para o array original
 
 			for (int i = leftIndex; i <= rightIndex; i++) {
 				array[i] = arrayAux[i];
