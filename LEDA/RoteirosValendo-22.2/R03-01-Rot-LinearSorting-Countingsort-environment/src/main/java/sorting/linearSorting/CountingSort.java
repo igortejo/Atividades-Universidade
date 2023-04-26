@@ -7,13 +7,12 @@ import sorting.AbstractSorting;
 /**
  * Classe que implementa a estratégia de Counting Sort vista em sala.
  *
- * Procure evitar desperdício de memória: AO INVÉS de alocar o array de
- * contadores com um tamanho arbitrariamente grande (por exemplo, com o maior
- * valor de entrada possível), aloque este array com o tamanho sendo o máximo
- * inteiro presente no array a ser ordenado.
+ * Procure evitar desperdício de memória: AO INVÉS de alocar o array de contadores
+ * com um tamanho arbitrariamente grande (por exemplo, com o maior valor de entrada possível),
+ * aloque este array com o tamanho sendo o máximo inteiro presente no array a ser ordenado.
  *
- * Seu algoritmo deve assumir que o array de entrada nao possui numeros
- * negativos, ou seja, possui apenas numeros inteiros positivos e o zero.
+ * Seu algoritmo deve assumir que o array de entrada nao possui numeros negativos,
+ * ou seja, possui apenas numeros inteiros positivos e o zero.
  *
  */
 public class CountingSort extends AbstractSorting<Integer> {
@@ -50,11 +49,7 @@ public class CountingSort extends AbstractSorting<Integer> {
 				arrayContador[array[i]] -= 1;
 			}
 
-<<<<<<< HEAD
-			// copiando de arrayAux para o array original
-=======
 			//copiando de arrayContador para o array original
->>>>>>> 484a8ee9138bc7a7554e4cff2567ef26379c750b
 
 			for (int i = leftIndex; i <= rightIndex; i++) {
 				array[i] = arrayAux[i];
@@ -86,4 +81,5 @@ public class CountingSort extends AbstractSorting<Integer> {
 		return valido;
 
 	}
+
 }

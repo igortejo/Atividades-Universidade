@@ -1,28 +1,24 @@
-package problems;
+package testando;
 
 import java.util.Arrays;
 
+import problems.Floor;
 import util.Util;
 
-public class FloorBinarySearchImpl implements Floor {
+public class Bitonico {
 
-	@Override
-	public Integer floor(Integer[] array, Integer x) {
-		// TODO implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
-	}
 	public static void main(String[] args) {
 
-		Integer[] array = new Integer[] { 22, 35, 2, 8, 9 };
-		System.out.println(floor(array, 23));
+		Integer[] array = new Integer[] { 1, 2, 3, 60 };
+		System.out.println(floor(array, 90));
 	}
 
 	public static Integer floor(Integer[] array, int x) {
 
 		quickSort(array, 0, array.length - 1);
-		
+
 		int resultado = indiceFloor(array, x, 0, array.length - 1);
-		
+
 		if (resultado != -1) {
 			return array[resultado];
 		} else {
@@ -32,30 +28,20 @@ public class FloorBinarySearchImpl implements Floor {
 	}
 
 	public static int indiceFloor(Integer[] array, int x, int leftIndex, int rightIndex) {
-
 		int resultado = -1;
-		
 		if (leftIndex <= rightIndex) {
 			int meio = (leftIndex + rightIndex) / 2;
-
 			if (array[meio] == x) {
 				resultado = meio;
-			} else if (x < array[meio]) {
+			} else if (meio - 1 > -1 && x < array[meio]) {
 				resultado = indiceFloor(array, x, leftIndex, meio - 1);
-				return resultado == -1 ? meio : resultado;        // se eu quiser o ceil
-
-			} else {
+			} else if (meio + 1 < array.length && array[meio + 1] <= x) {
 				resultado = indiceFloor(array, x, meio + 1, rightIndex);
-				//if(resultado == -1) {
-				//	return meio;
-				//} else {
-				//	return resultado;
-				//}
+			} else if (array[meio] <= x) {
+				resultado = meio;
 			}
-		
 		}
 		return resultado;
-
 	}
 
 	public static String quickSort(Integer[] array, int leftIndex, int rightIndex) {
@@ -86,5 +72,11 @@ public class FloorBinarySearchImpl implements Floor {
 
 		return i;
 	}
+
+	// if(resultado == -1) {
+	// return meio;
+	// } else {
+	// return resultado; // se eu quiser o ceil
+	// }
 
 }

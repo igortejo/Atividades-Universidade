@@ -12,43 +12,8 @@ import sorting.AbstractSorting;
  */
 public class ExtendedCountingSort extends AbstractSorting<Integer> {
 
+	@Override
 	public void sort(Integer[] array, int leftIndex, int rightIndex) {
-<<<<<<< HEAD
-		if (array.length > leftIndex && array != null) {
-
-			Integer[] B = new Integer[array.length];
-
-			// Search for the largest and smallest element
-			int min = array[leftIndex];
-			int max = array[leftIndex];
-			for (int i = leftIndex; i <= rightIndex; i++) {
-				if (array[i] < min)
-					min = array[i];
-				if (array[i] > max)
-					max = array[i];
-			}
-
-			// Cumulative array for the number of elements of each element.
-			int[] C = new int[max - min + 1];
-			for (int i = leftIndex; i <= rightIndex; i++)
-				C[array[i] - min]++;
-
-			// Sum of elements in the cumulative array.
-			for (int i = 1; i <= (max - min); i++)
-				C[i] += C[i - 1];
-
-			// Sort the elements in the auxiliary array(B).
-			for (int i = rightIndex; i >= leftIndex; i--) {
-				C[array[i] - min]--;
-				B[C[array[i] - min]] = array[i];
-			}
-
-			// Assigns the ordered array elements to the original array.
-			for (int i = leftIndex; i <= rightIndex; i++)
-				array[i] = B[i];
-
-		}
-=======
 
 		if (validando(array, leftIndex, rightIndex)) {
 			
@@ -125,7 +90,6 @@ public class ExtendedCountingSort extends AbstractSorting<Integer> {
 		else if (leftIndex >= rightIndex || leftIndex < 0 || rightIndex < 0) valido = false;
 		return valido;
 		
->>>>>>> 484a8ee9138bc7a7554e4cff2567ef26379c750b
 	}
 
 }
