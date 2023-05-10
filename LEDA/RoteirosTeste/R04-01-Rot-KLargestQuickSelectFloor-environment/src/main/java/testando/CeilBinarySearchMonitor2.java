@@ -1,14 +1,20 @@
-package problems;
+package testando;
 
 import java.util.Arrays;
 
+import problems.Floor;
 import util.Util;
 
-public class FloorBinarySearchImpl implements Floor {
+public class CeilBinarySearchMonitor2 {
 
-	@Override
-	public Integer floor(Integer[] array, Integer x) {
-		
+	public static void main(String[] args) {
+
+		Integer[] array = new Integer[] { 1, 2, 8, 9, 5};
+		System.out.println(floor(array, 7));
+	}
+
+	public static Integer floor(Integer[] array, int x) {
+
 		quickSort(array, 0, array.length - 1);
 
 		int resultado = indiceFloor(array, x, 0, array.length - 1);
@@ -20,22 +26,29 @@ public class FloorBinarySearchImpl implements Floor {
 		}
 
 	}
-
+	
 	public static int indiceFloor(Integer[] array, int x, int leftIndex, int rightIndex) {
-
-		if (leftIndex > rightIndex) {
-			return rightIndex;
+		
+		int resultado = -1;
+		
+		if (leftIndex <= rightIndex) {
+			
+			int meio = (leftIndex + rightIndex) / 2;
+			
+			if (array[meio] == x) {
+				resultado = meio;
+				
+			} else if (meio + 1 < array.length && array[meio] < x) {
+				resultado = indiceFloor(array, x, meio + 1, rightIndex);
+				
+			} else if (meio - 1 > -1 && x <= array[meio - 1]) {
+				resultado = indiceFloor(array, x, leftIndex, meio - 1);
+				
+			} else if (array[meio] >= x) {
+				resultado = meio;
+			}
 		}
-
-		int meio = (leftIndex + rightIndex) / 2;
-
-		if (array[meio] == x) {
-			return meio;
-		} else if (array[meio] < x) {
-			return indiceFloor(array, x, meio + 1, rightIndex);
-		} else {
-			return indiceFloor(array, x, leftIndex, meio - 1);
-		}
+		return resultado;
 	}
 
 	public static String quickSort(Integer[] array, int leftIndex, int rightIndex) {
@@ -66,5 +79,11 @@ public class FloorBinarySearchImpl implements Floor {
 
 		return i;
 	}
+
+	// if(resultado == -1) {
+	// return meio;
+	// } else {
+	// return resultado; // se eu quiser o ceil
+	// }
 
 }

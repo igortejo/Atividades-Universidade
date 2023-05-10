@@ -1,7 +1,6 @@
 package problems;
 
-import java.util.Arrays;
-
+	
 import util.Util;
 
 public class FloorBinarySearchImpl implements Floor {
@@ -21,7 +20,7 @@ public class FloorBinarySearchImpl implements Floor {
 
 	}
 
-	public static int indiceFloor(Integer[] array, int x, int leftIndex, int rightIndex) {
+	public int indiceFloor(Integer[] array, int x, int leftIndex, int rightIndex) {
 
 		if (leftIndex > rightIndex) {
 			return rightIndex;
@@ -38,7 +37,7 @@ public class FloorBinarySearchImpl implements Floor {
 		}
 	}
 
-	public static String quickSort(Integer[] array, int leftIndex, int rightIndex) {
+	public void quickSort(Integer[] array, int leftIndex, int rightIndex) {
 
 		if (leftIndex < rightIndex) {
 
@@ -47,10 +46,9 @@ public class FloorBinarySearchImpl implements Floor {
 			quickSort(array, pivot_index + 1, rightIndex);
 
 		}
-		return Arrays.toString(array);
 	}
 
-	public static int partition(Integer[] array, int leftIndex, int rightIndex) {
+	public int partition(Integer[] array, int leftIndex, int rightIndex) {
 
 		Integer pivot = array[leftIndex];
 

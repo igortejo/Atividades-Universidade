@@ -9,8 +9,8 @@ public class FloorBinarySearchImpl2 {
 
 	public static void main(String[] args) {
 
-		Integer[] array = new Integer[] { 1, 2, 8, 22, 60 };
-		System.out.println(floor(array, 25));
+		Integer[] array = new Integer[] { 5, 8, 3, 20, 60 };
+		System.out.println(floor(array, 9));
 	}
 
 	public static Integer floor(Integer[] array, int x) {
@@ -29,21 +29,19 @@ public class FloorBinarySearchImpl2 {
 
 	public static int indiceFloor(Integer[] array, int x, int leftIndex, int rightIndex) {
 		
-		int resultado = -1;
-		
-		if (leftIndex <= rightIndex) {
-			int meio = (leftIndex + rightIndex) / 2;
-			if (array[meio] == x) {
-				resultado = meio;
-			} else if (meio - 1 > -1 && x < array[meio]) {
-				resultado = indiceFloor(array, x, leftIndex, meio - 1);
-			} else if (meio + 1 < array.length && array[meio + 1] <= x) {
-				resultado = indiceFloor(array, x, meio + 1, rightIndex);
-			} else if (array[meio] <= x) {
-				resultado = meio;
-			}
-		}
-		return resultado;
+		if (leftIndex > rightIndex) {
+	        return rightIndex;
+	    }
+
+	    int meio = (leftIndex + rightIndex) / 2;
+	    
+	    if (array[meio] == x) {
+	        return meio;
+	    } else if (array[meio] < x) {
+	        return indiceFloor(array, x, meio + 1, rightIndex);
+	    } else {
+	        return indiceFloor(array, x, leftIndex, meio - 1);
+	    }
 	}
 
 	public static String quickSort(Integer[] array, int leftIndex, int rightIndex) {
@@ -74,11 +72,5 @@ public class FloorBinarySearchImpl2 {
 
 		return i;
 	}
-
-	// if(resultado == -1) {
-	// return meio;
-	// } else {
-	// return resultado; // se eu quiser o ceil
-	// }
 
 }
