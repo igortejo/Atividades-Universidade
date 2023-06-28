@@ -47,7 +47,9 @@ public class KLargestOrderStatisticsImpl<T extends Comparable<T>> implements KLa
 				}
 			}
 
-			return selectionSort(maiores_elementos);
+			//return selectionSort(maiores_elementos);
+			return maiores_elementos;
+
 		}
 
 		return (T[]) new Comparable[0];

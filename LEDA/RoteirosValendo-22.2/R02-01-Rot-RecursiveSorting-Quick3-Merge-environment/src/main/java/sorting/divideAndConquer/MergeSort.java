@@ -11,15 +11,15 @@ import sorting.AbstractSorting;
 public class MergeSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
 	@Override
-	public void sort(T[] array, int leftIndex, int rightIndex) {
+	public void sort(T[] aux, int leftIndex, int rightIndex) {
 		
-		if(leftIndex >= rightIndex || array == null) {
+		if(leftIndex >= rightIndex || aux == null) {
 			return;
 		} else {
 			int meio = (leftIndex + rightIndex) / 2;
-			sort(array, leftIndex, meio);
-			sort(array, meio + 1, rightIndex);
-			merge(array, leftIndex, meio, rightIndex);
+			sort(aux, leftIndex, meio);
+			sort(aux, meio + 1, rightIndex);
+			merge(aux, leftIndex, meio, rightIndex);
 		}
 
 	}

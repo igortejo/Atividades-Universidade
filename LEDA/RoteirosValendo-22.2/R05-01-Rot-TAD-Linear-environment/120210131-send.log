@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-10T15:20:03.866-0300</date>
+  <logger>IGOR TEJO BEZERRA RIBEIRO NOGUEIRA</logger>
+  <level>FINE</level>
+  <message>File 120210131-IGOR TEJO BEZERRA RIBEIRO NOGUEIRA.zip was received. It was sent by IGOR TEJO BEZERRA RIBEIRO NOGUEIRA from IP 192.168.0.113 at 10-05-2023 15*20*03</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-05-11T15:17:22.751-0300</date>
+  <logger>IGOR TEJO BEZERRA RIBEIRO NOGUEIRA</logger>
+  <level>FINE</level>
+  <message>File 120210131-IGOR TEJO BEZERRA RIBEIRO NOGUEIRA.zip was received. It was sent by IGOR TEJO BEZERRA RIBEIRO NOGUEIRA from IP 192.168.0.113 at 11-05-2023 15*17*22</message>
+</record>

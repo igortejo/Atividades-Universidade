@@ -22,19 +22,60 @@ public class FloorBinarySearchImpl implements Floor {
 
 	public int indiceFloor(Integer[] array, int x, int leftIndex, int rightIndex) {
 
-		if (leftIndex > rightIndex) {
-			return rightIndex;
+		int result = -1;
+		if ( leftIndex <= rightIndex) {
+			int meio = (leftIndex + rightIndex) / 2;
+			if (array[meio] == x) {
+				result = meio;
+			}else if (meio - 1 > -1 && array[meio] >= x) {
+				result = indiceFloor(array, x, leftIndex, meio - 1);
+			}else if (meio + 1 < array.length && array[meio+1] <= x){
+				result = indiceFloor(array, x, meio + 1, rightIndex);
+			}else if (array[meio] <= x) {
+				result = meio;
+			}
+			
 		}
+		return result;
+	}
+	
+	public Integer ceil(Integer[] array, Integer x) {
+		
+		quickSort(array, 0, array.length - 1);
 
-		int meio = (leftIndex + rightIndex) / 2;
+		int resultado = indiceCeil(array, x, 0, array.length - 1);
 
-		if (array[meio] == x) {
-			return meio;
-		} else if (array[meio] < x) {
-			return indiceFloor(array, x, meio + 1, rightIndex);
+		if (resultado != -1) {
+			return array[resultado];
 		} else {
-			return indiceFloor(array, x, leftIndex, meio - 1);
+			return null;
 		}
+
+	}
+
+	public int indiceCeil(Integer[] array, int x, int leftIndex, int rightIndex) {
+
+		int result = -1;
+		
+		if (leftIndex <= rightIndex) {
+			int meio = (leftIndex + rightIndex) / 2;
+			if (array[meio] == x) {
+				result = meio;
+			}else if ((meio + 1) < array.length && array[meio] <= x) {
+				result = indiceCeil(array, x, meio + 1, rightIndex);
+			
+			}else if ((meio -1) > -1 && array[meio - 1] >= x){
+				result = indiceCeil(array, x, leftIndex, meio - 1);
+				
+			}else if (array[meio] > x) {
+				result = meio;
+			}
+		}
+		
+		
+			
+		
+		return result;
 	}
 
 	public void quickSort(Integer[] array, int leftIndex, int rightIndex) {
